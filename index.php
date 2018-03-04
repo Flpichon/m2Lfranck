@@ -142,6 +142,3 @@ else echo '<div class="alert alert-warning" style="font-size:25px;"role="alert">
 
 
 </body>
-
-
-
