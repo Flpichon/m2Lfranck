@@ -1,0 +1,8 @@
+$i=1;
+?>
+				
+				<script>  var msg<?php echo $i ?>;  var titre<?php echo $i ?>; 
+				{msg<?php echo $i ?>='<?php echo $mb['description_forma'] ?>'; titre<?php echo $i ?>='<?php echo $mb['titre_Formation']  ?>';}</script>
+					
+					<?php 
+                    <input type=\"button\" value=\"Plus d'informations\" onclick=\"popup(msg$i,titre$i)\"></div>
