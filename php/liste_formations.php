@@ -89,7 +89,7 @@ $s=0;
 foreach($aff as $mb)
 {	
 			
-			   echo "<tr>";
+			   echo "<tr ".formation_ok2($mb['titre_Formation']).">";
 					 echo "<th scope=\"row\" class=\"text-center\">".$mb['titre_Formation']."
 					 			 </th>";
 						echo "<td>
@@ -168,7 +168,7 @@ foreach($aff as $mb)
 
 					foreach($aff as $mb)
 					{
-						echo "<tr><td class=\"align-middle d-flex justify-content-center\"><div class=\"radio\">
+						echo "<tr ".formation_ok2($mb['titre_Formation'])."><td class=\"align-middle d-flex justify-content-center\"><div class=\"radio\">
   					<label class=\"radio-inline\"><input type=\"checkbox\" name=\"formation[]\" value=\"".$mb['id_Formation']."\" ".formation_ok($mb['titre_Formation']).">".$mb['titre_Formation']."</label>
 						</td></tr>";
 					}

@@ -21,7 +21,7 @@ return $resultat;
 function recherche_utilisateur($Pseudo,$mdp)
 {
     $dbh=init_connexion();
-    $req="select Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit from Employe where Pseudo= :pseudo and mdp= md5(:mdp)";
+    $req="select Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit,type_Employe from Employe where Pseudo= :pseudo and mdp= md5(:mdp)";
     $prep=$dbh->prepare($req);
     $resultat=$prep->execute(array(
         'pseudo' => $Pseudo,
@@ -52,8 +52,11 @@ $resultat=false;
 			$_SESSION['id_Employe'] = $employe['id_Employe'];
 			$_SESSION['Prenom_Employe'] = $employe['Prenom_Employe'];
 			$_SESSION['nom_Employe']=$employe['nom_Employe'];
+			$_SESSION['nom_Employe']=$employe['nom_Employe'];
 			$_SESSION['creditfo'][]="";
 			$_SESSION['credit']=$employe['credit'];
+			$_SESSION['type_Employe']=$employe['type_Employe'];
+			
 			
 			
 			
@@ -83,6 +86,8 @@ function EstConnecte()
 		exit;
 	}
 }
+
+
 		
 
 function AfficherDuJour()
@@ -138,6 +143,17 @@ function formation_ok($forma)
 	$resultat=$prep->fetchAll();
 	
 	if($resultat) return "class=\"btn btn-secondary btn-lg\" disabled";else return "class=\"btn btn-lg btn-primary\"";
+}
+
+function formation_ok2($forma)
+{
+	$dbh=init_connexion();
+	$req='SELECT titre_Formation FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and etat="en cours" and date_Formation>CURDATE() and titre_Formation=:formation';
+	$prep=$dbh->prepare($req);
+	$resultat=$prep->execute(array('id' => $_SESSION['id_Employe'],'formation'=> $forma ));
+	$resultat=$prep->fetchAll();
+	
+	if($resultat) return "style=\"display:none;\"";else return "";
 }
 
 function ajout($format)
