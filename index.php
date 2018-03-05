@@ -133,12 +133,10 @@ reseter();
 </div>
     
   </div>
-<?
+<?php
 }
 else echo '<div class="alert alert-warning" style="font-size:25px;"role="alert">Vous n\'avez aucune formation en cours ! Cliquez <a href="php/liste_formations.php" class="badge badge-success">ici</a> pour voir la liste des formations disponibles.</div>';
 ?>
 	<!-- Button trigger modal -->
 	
-
-
 </body>
