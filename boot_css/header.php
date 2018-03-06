@@ -1,4 +1,4 @@
-<?php include '../php/test.php';?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class=" btn btn-outline-light" href="../index.php" style="margin-right:2%;margin-top:1%;">Formations en cours <?php echo $_SESSION['type_Employe'] ?>
+      <a class=" btn btn-outline-light" href="../index.php" style="margin-right:2%;margin-top:1%;">Formations en cours
  <span class="sr-only">(current)</span></a>
       <a class=" btn btn-outline-light" href="../php/liste_formations.php" style="margin-right:2%;margin-top:1%;">Liste des formations<span class="sr-only">(current)</span></a>
 
