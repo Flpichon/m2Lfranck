@@ -52,7 +52,7 @@ $resultat=false;
 			$_SESSION['id_Employe'] = $employe['id_Employe'];
 			$_SESSION['Prenom_Employe'] = $employe['Prenom_Employe'];
 			$_SESSION['nom_Employe']=$employe['nom_Employe'];
-			$_SESSION['nom_Employe']=$employe['nom_Employe'];
+			
 			$_SESSION['creditfo'][]="";
 			$_SESSION['credit']=$employe['credit'];
 			$_SESSION['type_Employe']=$employe['type_Employe'];
