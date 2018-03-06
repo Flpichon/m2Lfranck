@@ -88,8 +88,9 @@ $s=0;
 
 foreach($aff as $mb)
 {	
-			
-			   echo "<tr ".formation_ok2($mb['titre_Formation']).">";
+			if (!formation_ok2($mb['titre_Formation']))
+			 {
+				   echo "<tr>";
 					 echo "<th scope=\"row\" class=\"text-center\">".$mb['titre_Formation']."
 					 			 </th>";
 						echo "<td>
@@ -147,6 +148,7 @@ foreach($aff as $mb)
 				echo "<td class=\"text-center\">".$mb['credit']."</td>"; $_SESSION['creditfo'][$mb['id_Formation']]=$mb['credit'];
 		echo "</tr>";
 				}
+			}
 			?>
 
 			</tbody>
