@@ -1,7 +1,13 @@
 <?php
-include(dirname(__FILE__)."/../boot_css/header.php");
+
+
 include_once 'test.php';
 EstConnecte();
+if(Estmanager())
+{
+include '../boot_css/header_man.php';
+}
+else include '../boot_css/header.php';
 $aff=Afficher_formations();
 $nbr=Afficher_formations_actuelles_encours();
 $j=0;
