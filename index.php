@@ -1,13 +1,25 @@
 <?php 
-include(dirname(__FILE__)."/boot_css/header.php");
+
+
+
+
+
+
 include_once 'php/test.php';
 include '/php/description.php';
 Estconnecte();
+if(Estmanager())
+{
+include 'boot_css/header_man.php';
+}
+else include 'boot_css/header.php';
 $test=Afficher_formations_actuelles_encours();  
-$i=0;
+$nbformationencours=0;
 foreach ($test as $nb)
-{$i++;}
+{$nbformationencours++;}
 $credit=CreditEmploye();
+
+
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +50,7 @@ reseter();
 </form>
 <div class="card">
   <div class="card-header">
-  <h2 class="text-center">Vos formations en cours (<?echo$i;?>)</h2>
+  <h2 class="text-center">Vos formations en cours (<?echo$nbformationencours;?>)</h2>
 
   </div>
 	<?php if ($test)
