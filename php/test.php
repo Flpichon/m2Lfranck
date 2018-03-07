@@ -21,7 +21,7 @@ return $resultat;
 function recherche_utilisateur($Pseudo,$mdp)
 {
     $dbh=init_connexion();
-    $req="select Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit,type_Employe from Employe where Pseudo= :pseudo and mdp= md5(:mdp)";
+    $req="select Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit,type_Employe from Employe inner join Type_Employe on Employe.type_Employe=Type_Employe.id_Type_Employe where Pseudo= :pseudo and mdp= md5(:mdp)";
     $prep=$dbh->prepare($req);
     $resultat=$prep->execute(array(
         'pseudo' => $Pseudo,
@@ -52,7 +52,6 @@ $resultat=false;
 			$_SESSION['id_Employe'] = $employe['id_Employe'];
 			$_SESSION['Prenom_Employe'] = $employe['Prenom_Employe'];
 			$_SESSION['nom_Employe']=$employe['nom_Employe'];
-			
 			$_SESSION['creditfo'][]="";
 			$_SESSION['credit']=$employe['credit'];
 			$_SESSION['type_Employe']=$employe['type_Employe'];
@@ -195,7 +194,16 @@ function reseter()
 
 }
 
+function Estmanager() //vérifie si l'utilisateur qui se connecte est manager. Permet de changer le Header.
+{
+	$dbh=init_connexion();
+	$req="SELECT id_Type_Employe from Type_Employe inner join Employe on Type_Employe.id_Type_Employe=Employe.id_Employe where id_Employe = :id and id_type_Employe=1";
+	$prep=$dbh->prepare($req);
+	$resultat=$prep->execute(array('id' => $_SESSION['id_Employe']));
+	$resultat=$prep->fetch();
 
+	if($resultat)return true;else return false;
 
+}
 ?>
 
