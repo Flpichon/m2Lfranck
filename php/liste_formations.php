@@ -1,6 +1,4 @@
 <?php
-
-
 include_once 'test.php';
 EstConnecte();
 if(Estmanager())
