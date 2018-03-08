@@ -1,10 +1,4 @@
 <?php 
-
-
-
-
-
-
 include_once 'php/test.php';
 include '/php/description.php';
 Estconnecte();
