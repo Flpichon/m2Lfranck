@@ -7,6 +7,7 @@ include '../boot_css/header_man.php';
 }
 else include '../boot_css/header.php';
 $credit=CreditEmploye();
+$mb=afficher_mb();
 ?>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,5 +24,44 @@ $credit=CreditEmploye();
 		   ;?>
 	<div>Il vous reste <?echo $credit['credit'];?> crédits</div>
 </div>
+<div class="card">
+  	<div class="card-header">
+  		<h2 class="text-center">Liste des Employés</h2>
 
+  	</div>
+  <div class="d-flex card-body">
+		<div class="container-fluid">
+			<div class="row d-flex">
+				<div class="d-flex col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+					<div class="table-responsive">
+						<table class="table table-bordered table-xl" >
+
+							<thread>
+								<tr>
+									<th scope="col" class="text-center">Prénom</th>
+									<th scope="col" class="text-center">Nom</th>
+									<th scope="col" class="text-center">Gestion des formations</th>
+				
+        
+								<tr>
+							</thread>
+						<tbody>
+<?php
+foreach	($mb as $membres)
+{	echo "<tr>";
+	echo "<th scope=\"row\" class=\"text-center\">".$membres['Prenom_Employe']."
+		  </th>";
+	echo "<th scope=\"row\" class=\"text-center\">".$membres['nom_Employe']."
+		  </th>";
+	echo "<th scope=\"row\" class=\"text-center\">Gestion
+		  </th>";
+	echo "</tr>";
+	
+}
+
+?>
+</tbody>
+		</table >
+	</div>
+</div>
 </body>

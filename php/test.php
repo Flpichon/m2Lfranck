@@ -5,9 +5,9 @@ include(dirname(__FILE__)."/../BDD/connexion_bdd.php");
 function afficher_mb()
 {
 $dbh=init_connexion();
-$req='SELECT * FROM Employe where id_Employe = :id';
+$req='SELECT * FROM Employe where type_Employe=2';
 $prep=$dbh->prepare($req);
-$resultat= $prep->execute(array('id' => $_SESSION['id_Employe'] ));
+$resultat= $prep->execute(array());
 
    $resultat=$prep->fetchAll();
 
