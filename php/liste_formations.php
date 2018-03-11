@@ -8,17 +8,17 @@ include '../boot_css/header_man.php';
 else include '../boot_css/header.php';
 $aff=Afficher_formations();
 $nbr=Afficher_formations_actuelles_encours();
-$j=0;
-foreach ($nbr as $nbrr)
-{$j++;}  
-$i=0;
+$var2=0;
+foreach ($nbr as $nombres)
+{$var2++;}  
+$var1=0;
 foreach ($aff as $nb)
-{$i++;}
-$k=$i-$j;
-$l=0;
+{$var1++;}
+$var3=$var1-$var2;
+$nb_forma_select=0;
 $credit=CreditEmploye();
-$ct=0;		
-$s=0;
+$credits_utilisés=0;		
+$variable_verif=0;
 ?>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,30 +41,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 	foreach ($_POST["formation"] as $idforma)
 	{
-		$ct+=$_SESSION['creditfo'][$idforma];
+		$credits_utilisés+=$_SESSION['creditfo'][$idforma];
 	}
 	foreach ($_POST["formation"] as $idforma)
 	{
-		if($credit['credit']>=$ct)
+		if($credit['credit']>=$credits_utilisés)
 			{
 			ajout($idforma);
-			$l++;
-			$s=1;
+			$nb_forma_select++;
+			$variable_verif=1;
 			}
-			else $s=2;
+			else $variable_verif=2;
 		
 	}
-	if($s==2){
+	if($variable_verif==2){
 	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');}
-	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$l." formation(s) selectionnée(s).</div>";}
+	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";}
 }
 else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');}
 }
-$s=0;
+$variable_verif=0;
 ?>
 	<div class="card">
   	<div class="card-header">
-  		<h2 class="text-center">Liste des formations disponibles (<?echo$k;?>)</h2>
+  		<h2 class="text-center">Liste des formations disponibles (<?echo$var3;?>)</h2>
 
   	</div>
   <div class="d-flex card-body">
