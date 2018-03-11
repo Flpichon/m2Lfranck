@@ -111,7 +111,7 @@ function AfficherDate($date)
 function Afficher_formations_actuelles_encours()
 {
 	$dbh=init_connexion();
-$req='SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and etat="en cours" and date_Formation>CURDATE()';
+$req='SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and etat="en cours" or etat="en attente" or etat="validé" and (duree_Formation+ date_Formation)>CURDATE()';
 $prep=$dbh->prepare($req);
 $resultat= $prep->execute(array('id' => $_SESSION['id_Employe'] ));
 
