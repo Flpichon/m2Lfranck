@@ -1,3 +1,4 @@
+
 <?php
 include_once 'test.php';
 EstConnecte();
@@ -6,6 +7,7 @@ if(Estmanager())
 include '../boot_css/header_man.php';
 }
 else include '../boot_css/header.php';
+
 $aff=Afficher_formations();
 $nbr=Afficher_formations_actuelles_encours();
 $var2=0;
@@ -27,6 +29,7 @@ $variable_verif=0;
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>Liste des formations</title>
 </head>
 <body style="background:#E8E7E7">
@@ -55,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		
 	}
 	if($variable_verif==2){
-	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');}
-	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";}
+	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');?><script>swal('Erreur',"Vous n'avez pas assez de crédits","error");</script><?}
+	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";?><script>swal('Confirmation','Vous avez selectionné <?echo $nb_forma_select?> formation(s)',"success");</script><?header ('Refresh:2;url= ../index.php');}
 }
-else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');}
+else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');?><script>swal('Attention',"Vous n'avez selectionné aucune formation","warning");</script><?}
 }
 $variable_verif=0;
 ?>
