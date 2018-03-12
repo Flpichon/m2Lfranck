@@ -44,7 +44,7 @@ reseter();
 </form>
 <div class="card">
   <div class="card-header">
-  <h2 class="text-center">Vos formations en cours (<?echo $nbformationencours;?>)</h2>
+  <h2 class="text-center">Vos formations sélectionnées (<?echo $nbformationencours;?>)</h2>
 
   </div>
 	<?php if ($test)
