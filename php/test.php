@@ -111,7 +111,7 @@ function AfficherDate($date)
 function Afficher_formations_actuelles_encours()
 {
 	$dbh=init_connexion();
-$req='SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and etat="en cours" or etat="en attente" or etat="validé" and (duree_Formation+ date_Formation)>CURDATE()';
+$req='SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and (etat="en cours" or etat="en attente" or etat="validé") and (duree_Formation+ date_Formation)>CURDATE()';
 $prep=$dbh->prepare($req);
 $resultat= $prep->execute(array('id' => $_SESSION['id_Employe'] ));
 
@@ -147,7 +147,7 @@ function formation_ok($forma)
 function formation_ok2($forma)
 {
 	$dbh=init_connexion();
-	$req='SELECT titre_Formation FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and etat="en cours" and date_Formation>CURDATE() and titre_Formation=:formation';
+	$req='SELECT titre_Formation FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and (etat="en cours" or etat="en attente" or etat="validé") and date_Formation>CURDATE() and titre_Formation=:formation';
 	$prep=$dbh->prepare($req);
 	$resultat=$prep->execute(array('id' => $_SESSION['id_Employe'],'formation'=> $forma ));
 	$resultat=$prep->fetchAll();
@@ -158,12 +158,20 @@ function formation_ok2($forma)
 function ajout($format)
 {
 	$dbh=init_connexion();
-	$req='INSERT INTO `Selectionner` (`id_Employe`, `id_Formation`, `etat`) VALUES (:id, :forma, "en cours");
-    UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit-Formation.credit WHERE `Employe`.`id_Employe` = :id and Formation.id_Formation=:forma;';
+	if(Estmanager())
+	{
+	$req='INSERT INTO `Selectionner` (`id_Employe`, `id_Formation`, `etat`) VALUES (:id, :forma, "validé");
+	UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit-Formation.credit WHERE `Employe`.`id_Employe` = :id and Formation.id_Formation=:forma;';
+	}
+	else
+	{
+		$req='INSERT INTO `Selectionner` (`id_Employe`, `id_Formation`, `etat`) VALUES (:id, :forma, "en attente");
+	UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit-Formation.credit WHERE `Employe`.`id_Employe` = :id and Formation.id_Formation=:forma;';
+
+	}
 	$prep=$dbh->prepare($req);
 	$resultat=$prep->execute(array('id' => $_SESSION['id_Employe'],'forma'=>$format));
 	$dbh=NULL;
-	header ('Refresh:2;url= ../index.php'); 
 
 }
 
