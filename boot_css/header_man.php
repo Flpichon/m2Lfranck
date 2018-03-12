@@ -18,7 +18,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class=" btn btn-outline-light" href="../index.php" style="margin-right:2%;margin-top:1%;">Formations en cours
+      <a class=" btn btn-outline-light" href="../index.php" style="margin-right:2%;margin-top:1%;">Formations sélectionnées
  <span class="sr-only">(current)</span></a>
       <a class=" btn btn-outline-light" href="../php/liste_formations.php" style="margin-right:2%;margin-top:1%;">Liste des formations<span class="sr-only">(current)</span></a>
       <a class=" btn btn-outline-light" href="../php/gestion_formation.php" style="margin-right:2%;margin-top:1%;">Gestion des Formations
@@ -27,9 +27,9 @@
   <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Mon compte
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#1a1a3d;">
-  <a class=" dropdown-item " href="#" style="margin-right:2%;margin-top:1%;color:white; ">Informations personnelles<span class="sr-only">(current)</span></a>
-  <a class="dropdown-item " href="#" style="margin-right:2%;margin-top:1%;color:white;">Historique des formations<span class="sr-only">(current)</span></a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <a class=" dropdown-item " href="#" style="margin-right:2%;margin-top:1%; ">Informations personnelles<span class="sr-only">(current)</span></a>
+  <a class="dropdown-item " href="#" style="margin-right:2%;margin-top:1%;">Historique des formations<span class="sr-only">(current)</span></a>
   <a class="dropdown-item " href="../php/deco.php" style="margin-right:2%;margin-top:1%;color:#fd402b;">Déconnexion<span class="sr-only">(current)</span></a>
   </div>
 
