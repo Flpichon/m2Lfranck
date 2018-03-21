@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		
 	}
 	if($variable_verif==2){
-	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');?><script>swal('Erreur',"Vous n'avez pas assez de crédits","error");</script><?}
+	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');?><script>swal('Problème de transaction',"Vous n'avez pas assez de crédits","error");</script><?}
 	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";?><script>swal('Confirmation','Vous avez selectionné <?echo $nb_forma_select?> formation(s)',"success");</script><?header ('Refresh:2;url= ../index.php');}
 }
 else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');?><script>swal('Attention',"Vous n'avez selectionné aucune formation","warning");</script><?}
@@ -96,7 +96,7 @@ $variable_verif=0;
 foreach($aff as $mb)
 {	
 			if (!formation_ok2($mb['titre_Formation']))
-			 {
+			 { 
 				   echo "<tr>";
 					 echo "<th scope=\"row\" class=\"text-center\">".$mb['titre_Formation']."
 					 			 </th>";
@@ -176,10 +176,11 @@ foreach($aff as $mb)
 				<?php $idforma="";
 
 					foreach($aff as $mb)
-					{
+					{ 
+						if (!formation_ok2($mb['titre_Formation'])){
 						echo "<tr ".formation_ok2($mb['titre_Formation'])."><td class=\"align-middle d-flex justify-content-center\"><div class=\"radio\">
-  					<label class=\"radio-inline\"><input type=\"checkbox\" name=\"formation[]\" value=\"".$mb['id_Formation']."\" ".formation_ok($mb['titre_Formation']).">".$mb['titre_Formation']."</label>
-						</td></tr>";
+  					<label class=\"radio-inline\"><input type=\"checkbox\" name=\"formation[]\" value=\"".$mb['id_Formation']."\">".$mb['titre_Formation']."</label>
+						</td></tr>";}
 					}
 ?>
 	
@@ -194,15 +195,4 @@ foreach($aff as $mb)
 </div>
 </div>
 </div>
-
-
-    
-
-	
-
-
-	<!-- Button trigger modal -->
-	
-
-
 </body>
