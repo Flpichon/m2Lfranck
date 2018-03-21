@@ -21,7 +21,7 @@
       <a class=" btn btn-outline-light" href="../index.php" style="margin-right:2%;margin-top:1%;">Formations sélectionnées
  <span class="sr-only">(current)</span></a>
       <a class=" btn btn-outline-light" href="../php/liste_formations.php" style="margin-right:2%;margin-top:1%;">Liste des formations<span class="sr-only">(current)</span></a>
-      <a class=" btn btn-outline-light" href="../php/gestion_formation.php" style="margin-right:2%;margin-top:1%;">Gestion des Formations
+      <a class=" btn btn-outline-light" href="../php/gestion_formation.php" style="margin-right:2%;margin-top:1%;">Gestion des Employés
  <span class="sr-only">(current)</span></a>
       <div class="dropdown" style="margin-right:2%;margin-top:1%; ">
   <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
