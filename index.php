@@ -1,5 +1,5 @@
 <?php 
-include_once 'php/test.php';
+include_once 'php/methodes.php';
 include '/php/description.php';
 Estconnecte();
 if(Estmanager())

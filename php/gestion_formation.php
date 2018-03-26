@@ -1,5 +1,5 @@
 <?php
-include_once 'test.php';
+include_once 'methodes.php';
 EstConnecte();
 if (Estmanager()) {
 	include '../boot_css/header_man.php';

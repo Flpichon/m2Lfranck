@@ -1,6 +1,6 @@
 
 <?php
-include 'test.php';
+include 'methodes.php';
 require_once '../dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
