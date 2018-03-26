@@ -1,91 +1,81 @@
 <?php
 include(dirname(__FILE__) . "/../BDD/connexion_bdd.php");
+// Ici, toutes les methodes concernant l'utilisation des fonctionnalitées de la gestion de formation
+// de la Maison des ligues sont présentées.
 
+//function afficher_mb() : cette fonction renvoi toutes les informations concernant les employés
+// n'étant pas manager 
 
-function afficher_mb()
+function afficher_mb() //début
 {
-	$dbh = init_connexion();
-	$req = 'SELECT * FROM Employe where type_Employe=2';
-	$prep = $dbh->prepare($req);
-	$resultat = $prep->execute(array());
-
-	$resultat = $prep->fetchAll();
-
-
+	$dbh = init_connexion();//On initialise la connexion via la fonction init_connexion() de BDD/connexion_bdd.php
+	$req = 'SELECT * FROM Employe where type_Employe=2'; // on récupère toutes les informations de la table Employe avec comme type d'employé "2"
+	$prep = $dbh->prepare($req);// On prépare la requête
+	$resultat = $prep->execute(array());// On execute la requête préparée
+	$resultat = $prep->fetchAll();// Le fetchALL permet de retourner un tableau contenant les colonnes de la table Employe
 	return $resultat;
+} //fin
 
-}
-?>
-<?php
-
-function recherche_utilisateur($Pseudo, $mdp)
+//Cette fonction permet de vérifier si un utilisateur est présent dans la base de données, avec comme paramètres le Pseudo de l'Employe
+// et son mot de passe crypté via la fonction md5.
+function recherche_utilisateur($Pseudo, $mdp)//début
 {
 	$dbh = init_connexion();
 	$req = "select Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit,type_Employe from Employe inner join Type_Employe on Employe.type_Employe=Type_Employe.id_Type_Employe where Pseudo= :pseudo and mdp= md5(:mdp)";
 	$prep = $dbh->prepare($req);
-	$resultat = $prep->execute(array(
-		'pseudo' => $Pseudo,
-		'mdp' => $mdp
-	));
-	if ($resultat) {
-		$resultat = $prep->fetch();
-
-	}
+	$resultat = $prep->execute(array('pseudo' => $Pseudo,'mdp' => $mdp));
+			if ($resultat) 
+			{
+				$resultat = $prep->fetch();
+			}
 	$dbh = null;
 	return $resultat;
+}//fin
 
-
-
-}
-
-function connexion_utilisateur()
+//Cette fonction a pour but de récupérer les informations contenues dans le formulaire de connexion et de les utiliser
+// afin de connecter ou non celui ci
+function connexion_utilisateur()//début
 {
-	$resultat = false;
-	if ($_POST['Pseudo'] and $_POST['mdp']) {
-		$employe = recherche_utilisateur($_POST['Pseudo'], $_POST['mdp']);
-
-		if ($employe) {
+	$resultat = false;//On initialise la variable $resultat à false
+	if ($_POST['Pseudo'] and $_POST['mdp']) // On vérifie si le Pseudo et le mot de passe ont bien été renseignés
+	{
+		$employe = recherche_utilisateur($_POST['Pseudo'], $_POST['mdp']);// On fait appelle à la fonction recherche_utilisateur($pseudo,$mdp) et on retourne le resultat (true ou false) dans la variable $employe
+		if ($employe) //si $employe est true on créé une session et on lui attribut des variables de sessions
+		{
 			session_start();
-
-			$_SESSION['id_Employe'] = $employe['id_Employe'];
-			$_SESSION['Prenom_Employe'] = $employe['Prenom_Employe'];
-			$_SESSION['nom_Employe'] = $employe['nom_Employe'];
-			$_SESSION['creditfo'][] = "";
-			$_SESSION['credit'] = $employe['credit'];
-			$_SESSION['type_Employe'] = $employe['type_Employe'];
-
-
-
-
-			$resultat = true;
+			$_SESSION['id_Employe'] = $employe['id_Employe'];// variable retournant l'id de l'employé
+			$_SESSION['Prenom_Employe'] = $employe['Prenom_Employe'];// variable retournant le Prénom de l'employé
+			$_SESSION['nom_Employe'] = $employe['nom_Employe'];// variable retournant le Nom de l'employé
+			$_SESSION['creditfo'][] = "";// variable retournant le crédit des formations proposées
+			$_SESSION['credit'] = $employe['credit'];// variable retournant le crédit de l'employé sélectionné
+			$_SESSION['type_Employe'] = $employe['type_Employe'];// variable retournant le type de l'employé
+			$resultat = true;//si la session est créée, $resultat passe à true
 		}
 
 	}
-	return $resultat;
+	return $resultat;//On retourne la valeur de $resultat afin de savoir si l'utilisateur est connecté
 
-}
-
-function DemarrerSession()
+}//fin
+//vérifie si une session existe, et démarre une session dans le cas contraire
+function DemarrerSession()//début
 {
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
 	}
-}
-
-function EstConnecte()
+}//fin
+//Cette fonction permet de vérifier si une session liée à un employé est en cours, sinon redirige vers la page de connexion
+function EstConnecte()//début
 {
-
 	DemarrerSession();
-	if (!isset($_SESSION['id_Employe'])) {
-		header('location: ../page_connexion.php');
+	if (!isset($_SESSION['id_Employe'])) 
+	{
+		header('location: ../page_connexion.php');//redirection vers la page de connexion
 		exit;
 	}
-}
+}//fin
 
-
-
-
-function AfficherDuJour()
+//Cette fonction retourne l'heure la date selon un format définit.
+function AfficherDuJour()//début
 {
 	setlocale(LC_TIME, 'fr_FR.UTF8');
 	date_default_timezone_set('Europe/Paris');
@@ -94,28 +84,23 @@ function AfficherDuJour()
 //setlocale(LC_TIME, 'fra_fra');
 //return strftime('%Y-%m-%d %H:%M:%S'); 
 	return strftime('Il est %Hh%M et nous sommes le %d/%m/%Y');
-}
-
-function AfficherDate($date)
+}//fin
+//permet d'afficher une date (entrée en paramètre) selon un format définit
+function AfficherDate($date)//début
 {
 	$phpdate = strtotime($date);
 	return date('d-m-Y', $phpdate);
-}
+}//fin
 
-
-
-function Afficher_formations_actuelles_encours()
+function Afficher_formations_actuelles_encours()//début
 {
 	$dbh = init_connexion();
 	$req = 'SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and (etat="en cours" or etat="en attente" or etat="validé") and (duree_Formation+ date_Formation)>CURDATE()';
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
-
 	$resultat = $prep->fetchAll();
-
-
 	return $resultat;
-}
+}//fin
 
 function Afficher_formations_Employés($id)
 {
