@@ -92,10 +92,20 @@ function AfficherDate($date)//début
 	return date('d-m-Y', $phpdate);
 }//fin
 
+//Cette fonction va renvoyer les informations relatives aux formations choisies par le salarié (etat : en attente, validé ou en cours)
 function Afficher_formations_actuelles_encours()//début
 {
 	$dbh = init_connexion();
-	$req = 'SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire FROM Prestataire inner join Formation on Prestataire.id_Prestataire=Formation.id_Prestataire inner join Selectionner on Formation.id_Formation = Selectionner.id_Formation inner join Employe on Selectionner.id_Employe=Employe.id_Employe where Employe.id_Employe =:id and (etat="en cours" or etat="en attente" or etat="validé") and (duree_Formation+ date_Formation)>CURDATE()';
+	$req = 'SELECT titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire
+	 FROM Prestataire 
+	 inner join Formation 
+	 on Prestataire.id_Prestataire=Formation.id_Prestataire 
+	 inner join Selectionner 
+	 on Formation.id_Formation = Selectionner.id_Formation 
+	 inner join Employe on Selectionner.id_Employe=Employe.id_Employe 
+	 where Employe.id_Employe =:id 
+	 and (etat="en cours" or etat="en attente" or etat="validé") 
+	 and (duree_Formation+ date_Formation)>CURDATE()';// On selectionne les formations avec les différents états et on s'assure que la date de formation correspond bien
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
 	$resultat = $prep->fetchAll();
@@ -114,7 +124,14 @@ function Afficher_formations_Employés($id)
 
 	return $resultat;
 }
-
+//Cette fonction Permet de retourner toutes les informations necessaires liées aux formations de la table formation
+//L'id de la formation
+//Le titre de la formation
+//La description de la formation
+//La date de la formation
+//La durée de la formation
+//Le prestataire proposant la formation
+//Le nombre de crédit associé à la formation
 function Afficher_formations()
 {
 	$dbh = init_connexion();
@@ -128,7 +145,8 @@ function Afficher_formations()
 	return $resultat;
 }
 
-
+// Cette fonction permet de vérifier si une formation (définie par son titre) a été séléctionné par l'employé (défini par son id)
+// en attente / validé / en cours / refusé
 function formation_ok2($forma)
 {
 	$dbh = init_connexion();
@@ -140,7 +158,8 @@ function formation_ok2($forma)
 	if ($resultat) return true;
 	else return;
 }
-
+//Même fonction que précédement,mais les etats diffèrent
+//validé / en cours / refusé
 function formation_etat_ok($forma, $id)
 {
 
@@ -153,6 +172,7 @@ function formation_etat_ok($forma, $id)
 	if ($resultat) return true;
 	else return;
 }
+//Cette fonction permet de retourner vraie si la formation (selectionnée par son id) est en attente et faux si elle ne l'est pas
 function formation_etat_attente($id)
 {
 
@@ -165,7 +185,10 @@ function formation_etat_attente($id)
 	if ($resultat) return true;
 	else return;
 }
-
+//Cette fonction permet d'ajouter une formation dans la table "selectionner", en plus de déduire du nombre de crédit total de l'employé,
+//le coût de la formation 
+//Si l'employé est un manager, le statut de la formation passera à "validé"
+//Sinon elle passera à "en attente"
 function ajout($format)
 {
 	$dbh = init_connexion();
@@ -222,7 +245,11 @@ function Estmanager() //vérifie si l'utilisateur qui se connecte est manager. P
 	else return false;
 
 }
-
+//Cette fonction permet de valider ou non une formation par le manager d'une équipe
+// Les 3 paramètres sont :
+// l'etat selectionné par le manager ("refusé" ou "validé")
+// l'id de la formation correspondante
+// l'id de l'employé ayant fait la demande de formation
 function Valider_Etat_Formation($etat, $formation, $id_employe)
 
 {
