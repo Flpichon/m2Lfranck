@@ -1,3 +1,4 @@
+<!-- début du fichier methodes.php
 <?php
 include(dirname(__FILE__) . "/../BDD/connexion_bdd.php");
 // Ici, toutes les methodes concernant l'utilisation des fonctionnalitées de la gestion de formation
@@ -85,6 +86,7 @@ function AfficherDuJour()//début
 //return strftime('%Y-%m-%d %H:%M:%S'); 
 	return strftime('Il est %Hh%M et nous sommes le %d/%m/%Y');
 }//fin
+
 //permet d'afficher une date (entrée en paramètre) selon un format définit
 function AfficherDate($date)//début
 {
@@ -189,24 +191,25 @@ function formation_etat_attente($id)
 //le coût de la formation 
 //Si l'employé est un manager, le statut de la formation passera à "validé"
 //Sinon elle passera à "en attente"
-function ajout($format)
+function ajout($format)//début
 {
 	$dbh = init_connexion();
-	if (Estmanager()) {
+	if (Estmanager()) 
+	{
 		$req = 'INSERT INTO `Selectionner` (`id_Employe`, `id_Formation`, `etat`) VALUES (:id, :forma, "validé");
 	UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit-Formation.credit WHERE `Employe`.`id_Employe` = :id and Formation.id_Formation=:forma;';
-	} else {
+	} 
+	else 
+	{
 		$req = 'INSERT INTO `Selectionner` (`id_Employe`, `id_Formation`, `etat`) VALUES (:id, :forma, "en attente");
 	UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit-Formation.credit WHERE `Employe`.`id_Employe` = :id and Formation.id_Formation=:forma;';
-
 	}
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe'], 'forma' => $format));
 	$dbh = null;
-
-}
-
-function CreditEmploye()
+}//fin
+//Cette fonction permet de retourner le total de crédit de l'employé connecté
+function CreditEmploye()//début
 {
 	$dbh = init_connexion();
 	$req = 'SELECT `credit` from Employe where id_Employe=:id';
@@ -214,9 +217,7 @@ function CreditEmploye()
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
 	$resultat = $prep->fetch();
 	return $resultat;
-
-
-}
+}//fin
 
 function reseter()
 
@@ -233,39 +234,40 @@ function reseter()
 
 }
 
-function Estmanager() //vérifie si l'utilisateur qui se connecte est manager. Permet de changer le Header.
+//vérifie si l'utilisateur qui se connecte est manager. Permet de changer le Header.
+function Estmanager()//fin
 {
 	$dbh = init_connexion();
 	$req = "SELECT id_Type_Employe from Type_Employe inner join Employe on Type_Employe.id_Type_Employe=Employe.id_Employe where id_Employe = :id and id_type_Employe=1";
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
 	$resultat = $prep->fetch();
+		if ($resultat) 
+		return true;
+		else 
+		return false;
+}//fin
 
-	if ($resultat) return true;
-	else return false;
-
-}
 //Cette fonction permet de valider ou non une formation par le manager d'une équipe
 // Les 3 paramètres sont :
 // l'etat selectionné par le manager ("refusé" ou "validé")
 // l'id de la formation correspondante
 // l'id de l'employé ayant fait la demande de formation
-function Valider_Etat_Formation($etat, $formation, $id_employe)
-
+function Valider_Etat_Formation($etat, $formation, $id_employe)//début
 {
 	$dbh = init_connexion();
 	$req = "UPDATE `Selectionner` SET `etat` = :etat WHERE `Selectionner`.`id_Employe` = :id_employe AND `Selectionner`.`id_Formation` = :id_formation;";
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id_employe' => $id_employe, 'id_formation' => $formation, 'etat' => $etat));
-	if ($etat=="Refusé")
-	{
-		$req1="UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit+Formation.credit WHERE `Employe`.`id_Employe` = :id_employe and Formation.id_Formation=:id_formation;
-		DELETE FROM `Selectionner` WHERE `Selectionner`.`id_Employe` = :id_employe and `Selectionner`.`id_Formation`=:id_formation;";
-		$prep1=$dbh->prepare($req1);
-		$resultat1=$prep1->execute(array('id_employe' => $id_employe, 'id_formation' => $formation));
-	}
-
-
-}
+		if ($etat=="Refusé")//Si le manager refuse la formation, le coût en crédit de celle ci est rendu
+		//et la formation est replacée dans la liste des formations
+		{
+			$req1="UPDATE Employe inner join Selectionner on Employe.id_Employe=Selectionner.id_Employe inner join Formation on Selectionner.id_Formation=Formation.id_Formation SET Employe.credit = Employe.credit+Formation.credit WHERE `Employe`.`id_Employe` = :id_employe and Formation.id_Formation=:id_formation;
+			DELETE FROM `Selectionner` WHERE `Selectionner`.`id_Employe` = :id_employe and `Selectionner`.`id_Formation`=:id_formation;";
+			$prep1=$dbh->prepare($req1);
+			$resultat1=$prep1->execute(array('id_employe' => $id_employe, 'id_formation' => $formation));
+		}
+}//fin
 ?>
+<!--fin du fichier php-->
 
