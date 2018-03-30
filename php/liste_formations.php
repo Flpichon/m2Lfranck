@@ -1,6 +1,6 @@
 
 <?php
-include_once 'methodes.php';
+include_once '../DATA_ACCESS/methodes.php';
 EstConnecte();
 if(Estmanager())
 {
