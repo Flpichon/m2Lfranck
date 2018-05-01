@@ -1,3 +1,4 @@
+<!-- Cette page permet la gestion de formations des employés par leur manager.-->
 <?php
 include_once '../DATA_ACCESS/methodes.php';
 EstConnecte();

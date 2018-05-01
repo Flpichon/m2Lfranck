@@ -1,15 +1,16 @@
 
 <?php
-include '../DATA_ACCESS/methodes.php';
-require_once '../dompdf/autoload.inc.php';
-use Dompdf\Dompdf;
-
+include_once '../DATA_ACCESS/methodes.php';
 Estconnecte();
 $test = Afficher_formations_actuelles_encours();
 ?>
 
 <?php
+
+
+
 foreach ($test as $mb) {
+    $ok=$mb['titre_Formation'];
     $pdf .= '<p style="font-weight:bold;">Formation : <span style="font-weight:normal">';
     $pdf .= $mb['titre_Formation'];
     $pdf .= '</span></p>';
@@ -27,8 +28,14 @@ foreach ($test as $mb) {
     $pdf .= '</span></p>';
     $pdf .= '<div style="border-bottom:thin solid black;"></div><br/><br/>';
 }
-$dompdf = new Dompdf();
-$dompdf->loadHtml($pdf);
-$dompdf->render();
-$dompdf->stream("Formations_En_Cours");
+
+
+
+
+
+require_once '../vendor/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML($pdf);
+$mpdf->Output();
 ?>

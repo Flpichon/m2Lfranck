@@ -1,6 +1,6 @@
 <?php 
-include_once 'DATA_ACCESS//methodes.php';
-include '/php/description.php';
+include_once 'DATA_ACCESS/methodes.php';
+include '/franck/php/description.php';
 Estconnecte();
 if(Estmanager())
 {
@@ -53,7 +53,7 @@ reseter();
   <div class="card-body">
 	<div class="table-responsive">
 	<table class="table table-bordered" style="margin-top:3%;">
-	<a class="btn btn-primary" href="php/description.php" role="button">PDF de vos formations</a>
+	<a class="btn btn-primary" href="/php/description.php" role="button">PDF de vos formations</a>
 
 		<thread>
 			<tr>

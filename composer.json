@@ -1,0 +1,6 @@
+{
+    "require": {
+        "knplabs/knp-snappy": "^1.0",
+        "mpdf/mpdf": "^7.0"
+    }
+}
