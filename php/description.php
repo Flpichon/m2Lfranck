@@ -36,6 +36,7 @@ foreach ($test as $mb) {
 require_once '../vendor/autoload.php';
 
 $mpdf = new \Mpdf\Mpdf();
+$mpdf->SetTitle("Vos formations");
 $mpdf->WriteHTML($pdf);
 $mpdf->Output();
 ?>
