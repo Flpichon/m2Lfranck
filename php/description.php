@@ -1,6 +1,6 @@
 
 <?php
-include_once '../DATA_ACCESS/methodes.php';
+include_once '../DATA_ACCESS/DA_Employe.php';
 Estconnecte();
 $test = Afficher_formations_actuelles_encours();
 ?>
@@ -10,7 +10,7 @@ $test = Afficher_formations_actuelles_encours();
 
 
 foreach ($test as $mb) {
-    $ok=$mb['titre_Formation'];
+   
     $pdf .= '<p style="font-weight:bold;">Formation : <span style="font-weight:normal">';
     $pdf .= $mb['titre_Formation'];
     $pdf .= '</span></p>';

@@ -1,6 +1,8 @@
 
 <?php
 include_once '../DATA_ACCESS/methodes.php';
+include_once '../DATA_ACCESS/DA_Employe.php';
+include_once '../DATA_ACCESS/DA_Formation.php';
 EstConnecte();
 if(Estmanager())
 {
@@ -36,9 +38,9 @@ $variable_verif=0;
 <div class="alert alert-primary d-flex justify-content-between" role="alert">
 <?php echo '<div>Connecté en tant que'."  ".$_SESSION['Prenom_Employe']." ".$_SESSION['nom_Employe']."</div>"
 		   ;?>
-	<div>Il vous reste <?echo $credit['credit'];?> crédits</div>
+	<div>Il vous reste <?php echo $credit['credit'];?> crédits</div>
 </div>
-<?
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {	if(isset($_POST["formation"]))
 	{
@@ -58,16 +60,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		
 	}
 	if($variable_verif==2){
-	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');?><script>swal('Problème de transaction',"Vous n'avez pas assez de crédits","error");</script><?}
-	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";?><script>swal('Confirmation','Vous avez selectionné <?echo $nb_forma_select?> formation(s)',"success");</script><?header ('Refresh:2;url= ../index.php');}
+	echo "vous n'avez pas assez de crédits";header ('Refresh:1;url= liste_formations.php');?><script>swal('Problème de transaction',"Vous n'avez pas assez de crédits","error");</script><?php }
+	else {echo "<div class=\"alert alert-success d-flex justify-content-between\" role=\"alert\">".$nb_forma_select." formation(s) selectionnée(s).</div>";?><script>swal('Confirmation','Vous avez selectionné <?php echo $nb_forma_select?> formation(s)',"success");</script><?php header ('Refresh:2;url= ../index.php');}
 }
-else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');?><script>swal('Attention',"Vous n'avez selectionné aucune formation","warning");</script><?}
+else {echo"<div class=\"alert alert-warning d-flex justify-content-between\" role=\"alert\">Aucune formation selectionnée.</div>";header ('Refresh:1;url= liste_formations.php');?><script>swal('Attention',"Vous n'avez selectionné aucune formation","warning");</script><?php }
 }
 $variable_verif=0;
 ?>
 	<div class="card">
   	<div class="card-header">
-  		<h2 class="text-center">Liste des formations disponibles (<?echo$var3;?>)</h2>
+  		<h2 class="text-center">Liste des formations disponibles (<?php echo$var3; ?>)</h2>
 
   	</div>
   <div class="d-flex card-body">
@@ -98,7 +100,7 @@ foreach($aff as $mb)
 			if (!formation_ok2($mb['titre_Formation']))
 			 { 
 				   echo "<tr>";
-					 echo "<th scope=\"row\" class=\"text-center\">".$mb['titre_Formation']."
+					 echo "<th scope=\"row\" class=\"d-flex justify-content-center\">".$mb['titre_Formation']."
 					 			 </th>";
 						echo "<td>
 										<div class=\"d-flex justify-content-center\">
@@ -178,11 +180,11 @@ foreach($aff as $mb)
 					foreach($aff as $mb)
 					{ 
 						if (!formation_ok2($mb['titre_Formation'])){
-						echo "<tr ".formation_ok2($mb['titre_Formation'])."><td class=\"align-middle d-flex justify-content-center\"><div class=\"radio\">
+						echo "<tr ".formation_ok2($mb['titre_Formation'])."><td class=\"align-start d-flex justify-content-left\"><div class=\"radio\">
   					<label class=\"radio-inline\"><input type=\"checkbox\" name=\"formation[]\" value=\"".$mb['id_Formation']."\">".$mb['titre_Formation']."</label>
 						</td></tr>";}
 					}
-?>
+				?>
 	
       	  <tr><td class="d-flex justify-content-center"><button type="submit" value="submit" class="btn btn-success">Valider</button></td></tr>
 	    </form>

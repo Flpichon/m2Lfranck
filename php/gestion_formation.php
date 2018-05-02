@@ -1,13 +1,16 @@
 <!-- Cette page permet la gestion de formations des employés par leur manager.-->
 <?php
 include_once '../DATA_ACCESS/methodes.php';
+include_once '../DATA_ACCESS/DA_Employe.php';
+include_once '../DATA_ACCESS/DA_Manager.php';
+include_once '../DATA_ACCESS/DA_Formation.php';
 EstConnecte();
 if (Estmanager()) {
 	include '../boot_css/header_man.php';
 } else include '../boot_css/header.php';
 $credit = CreditEmploye();
 $mb = afficher_mb();
-$t;
+
 
 ?>
 <script> var membre[]; </script>
@@ -25,21 +28,18 @@ $t;
 <div class="alert alert-primary d-flex justify-content-between" role="alert">
 <?php echo '<div>Connecté en tant que' . "  " . $_SESSION['Prenom_Employe'] . " " . $_SESSION['nom_Employe'] . "</div>"; ?>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	if (isset($_POST["submit"]) && isset($_POST["formation"]) && isset($_POST["etat"])) {
-		$data = $_POST["formation"];
-		list($formatio, $membre) = explode("/", $data);
-		echo $formatio . $membre;
-		Valider_Etat_Formation($_POST["etat"], $formatio, $membre);
-			//echo $_POST['formation'].$_POST['etat'];
-		header('Refresh:1;url= gestion_formation.php');
-	}
-
-
-
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+		{
+			if (isset($_POST["submit"]) && isset($_POST["formation"]) && isset($_POST["etat"])) 
+			{
+				$data = $_POST["formation"];
+				list($formatio, $membre) = explode("/", $data);
+				Valider_Etat_Formation($_POST["etat"], $formatio, $membre);
+				header('Refresh:1;url= gestion_formation.php');
+			}
+		}
 ?>
-	<div>Il vous reste <? echo $credit['credit']; ?> crédits</div>
+<div>Il vous reste <?php echo $credit['credit']; ?> crédits</div>
 </div>
 <div class="card">
   	<div class="card-header">

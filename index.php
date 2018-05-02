@@ -1,6 +1,8 @@
 <?php 
 include_once 'DATA_ACCESS/methodes.php';
-include '/franck/php/description.php';
+include_once 'DATA_ACCESS/DA_Employe.php';
+include_once 'DATA_ACCESS/DA_Formation.php';
+//include_once 'php/description.php';
 Estconnecte();
 if(Estmanager())
 {
@@ -33,18 +35,18 @@ $credit=CreditEmploye();
 <div class="alert alert-primary d-flex justify-content-between" role="alert">
 <?php echo '<div>Connecté en tant que'."  ".$_SESSION['Prenom_Employe']." ".$_SESSION['nom_Employe']."</div>"
 		   ;?>
-	<div>Il vous reste <?echo $credit['credit'];?> crédits</div>
+	<div>Il vous reste <?php echo $credit['credit'];?> crédits</div>
 </div>
-<?
+<?php
 if(isset($_POST["reseteri"]))
 reseter();
 ?>
-<form class="form" method="post" action="index.php">
+<form class="form" method="post" action="/m2Lfranck/index.php">
 <button type="submit" value="reseter" name="reseteri" class="btn btn-primary">Réinitialiser</button>
 </form>
 <div class="card">
   <div class="card-header">
-  <h2 class="text-center">Vos formations sélectionnées (<?echo $nbformationencours;?>)</h2>
+  <h2 class="text-center">Vos formations sélectionnées (<?php echo $nbformationencours;?>)</h2>
 
   </div>
 	<?php if ($test)
@@ -53,7 +55,7 @@ reseter();
   <div class="card-body">
 	<div class="table-responsive">
 	<table class="table table-bordered" style="margin-top:3%;">
-	<a class="btn btn-primary" href="/php/description.php" role="button">PDF de vos formations</a>
+	<a class="btn btn-primary" href="php/description.php" role="button">PDF de vos formations</a>
 
 		<thread>
 			<tr>
