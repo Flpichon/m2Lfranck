@@ -37,7 +37,7 @@ function reseter()
 function Estmanager()//fin
 {
 	$dbh = init_connexion();
-	$req = "SELECT id_Type_Employe from Type_Employe inner join Employe on Type_Employe.id_Type_Employe=Employe.id_Employe where id_Employe = :id and id_type_Employe=1";
+	$req = "SELECT id_Type_Employe from Type_Employe inner join Employe on Type_Employe.id_Type_Employe=Employe.type_Employe where id_Employe = :id and id_type_Employe=1";
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
 	$resultat = $prep->fetch();
