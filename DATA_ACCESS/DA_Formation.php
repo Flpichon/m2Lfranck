@@ -1,6 +1,12 @@
 <?php 
 include_once(dirname(__FILE__) . "/../BDD/connexion_bdd.php");
 
+/**
+ * Fonction formation_ok2
+ * Cette fonction a pour but de vérifier la présence d'une formation associée à un employé (sous le statut : en attente, validé ou en cours)
+ * @param [string] $forma
+ * @return -- vrai si la formation entrée en paramètre est associée à l'employé dont la session est active
+ */
 function formation_ok2($forma)
 {
 	$dbh = init_connexion();
@@ -12,8 +18,13 @@ function formation_ok2($forma)
 	if ($resultat) return true;
 	else return;
 }
-//Même fonction que précédement,mais les etats diffèrent
-//validé / en cours / refusé
+/**
+ * Fonction formation_etat_ok
+ *
+ * @param [string] $forma
+ * @param [int] $id
+ * @return -- vrai si la formation est associée à un salarié et n'est pas en attente 
+ */
 function formation_etat_ok($forma, $id)
 {
 
@@ -26,7 +37,12 @@ function formation_etat_ok($forma, $id)
 	if ($resultat) return true;
 	else return;
 }
-//Cette fonction permet de retourner vraie si la formation (selectionnée par son id) est en attente et faux si elle ne l'est pas
+/**
+ * fonction formation_etat_attente
+ *
+ * @param [int] $id
+ * @return -- vrai si la formation dont l'id est en paramètre de la fonction est en attente
+ */
 function formation_etat_attente($id)
 {
 
@@ -39,11 +55,14 @@ function formation_etat_attente($id)
 	if ($resultat) return true;
 	else return;
 }
-//Cette fonction permet d'ajouter une formation dans la table "selectionner", en plus de déduire du nombre de crédit total de l'employé,
-//le coût de la formation 
-//Si l'employé est un manager, le statut de la formation passera à "validé"
-//Sinon elle passera à "en attente"
-function ajout($format)//début
+/**
+ * Fonction ajout
+ * Cette fonction permet d'ajouter une formation dans la table selectionner (entre une formation et un employé)
+ * Si l'employé est un manager, celle ci sera automatiquement mise sous le statut "validé".
+ * @param [id] $format
+ * @return void
+ */
+function ajout($format)
 {
 	$dbh = init_connexion();
 	if (Estmanager()) 
@@ -59,5 +78,5 @@ function ajout($format)//début
 	$prep = $dbh->prepare($req);
 	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe'], 'forma' => $format));
 	$dbh = null;
-}//fin
+}
 ?>
