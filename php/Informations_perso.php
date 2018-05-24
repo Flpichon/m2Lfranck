@@ -9,7 +9,8 @@ if(Estmanager())
 include '../boot_css/header_man.php';
 }
 else include '../boot_css/header.php';
-$info = info_Employe();
+$info = info_Employe($_SESSION['id_Employe']);
+$sup=Superieur_Employe();
 ?>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,17 +22,24 @@ $info = info_Employe();
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <title>Informations personnelles</title>
 </head>
+
     <body style="background:#E8E7E7">
-    
-    <div class="card d-flex justify-content-center" style="width: 18rem;">
-  <div class="card-header">
-    Featured
+    <div class="row">
+    <div class="d-flex col-12 justify-content-center">
+    <div class="card d-flex justify-content-center" style="width: 18rem; margin-top:5%">
+  <div class="card-header text-center">
+   Vos informations personnelles
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item">Prenom : <?php echo $info["Prenom_Employe"] ?></li>
+    <li class="list-group-item">Nom : <?php echo $info["nom_Employe"] ?></li>
+    <li class="list-group-item">Pseudo : <?php echo $info["Pseudo"] ?></li>
+    <li class="list-group-item">Date de naissance : <?php echo AfficherDate($info["date_naissance"]) ?></li>
+    <li class="list-group-item">E-mail : <?php if($info["mail"] == true) echo $info["mail"]; else echo "Non renseigné" ?></li>
+    <li class="list-group-item">Superieur : <?php echo $sup[0] ?> </li>
   </ul>
+</div>
+</div>
 </div>
     
     
