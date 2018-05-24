@@ -1,6 +1,11 @@
 <?php
 include_once(dirname(__FILE__) . "/../BDD/connexion_bdd.php");
 
+/**
+ * function Afficher_formations_actuelles_encours()
+ *
+ * @return -- tableau contenant les formations en cours, en attente ou validé pour un Employé
+ */
 function Afficher_formations_actuelles_encours()
 {
 	$dbh = init_connexion();
@@ -19,7 +24,11 @@ function Afficher_formations_actuelles_encours()
 	$resultat = $prep->fetchAll();
 	return $resultat;
 }
-
+/**
+ * fonction Afficher_formations()
+ *
+ * @return -- un tableau avec la liste des formations
+ */
 function Afficher_formations()
 {
 	$dbh = init_connexion();
@@ -56,6 +65,15 @@ function recherche_utilisateur($Pseudo, $mdp)//début
 	return $resultat;
 }//fin
 
+function info_Employe($id)
+{
+	$dbh=init_connexion();
+	$req="select * from Employe where id_Employe= :id";
+	$prep=$dbh->prepare($req);
+	$resultat = $prep->execute(array('id' => $id));
+	$resultat=$prep->fetch(PDO::FETCH_ASSOC);
+	return $resultat;
+}
 /**
  * function connexion_utilisateur
  *
