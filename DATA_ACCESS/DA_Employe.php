@@ -63,8 +63,13 @@ function recherche_utilisateur($Pseudo, $mdp)//début
 			}
 	$dbh = null;
 	return $resultat;
-}//fin
-
+}
+/**
+ * fonction info_Employe
+ *
+ * @param [int] $id
+ * @return -- tableau des informations relatives à l'employé selectionné par son id
+ */
 function info_Employe($id)
 {
 	$dbh=init_connexion();
@@ -76,7 +81,9 @@ function info_Employe($id)
 }
 /**
  * function connexion_utilisateur
- *
+ * Cette fonction verifie si le Pseudo et le mot de passe ont bien été saisit.
+ * Ensuite elle appelle la fonction : recherche_utilisateur afin de déterminer l'existence d'un pseudo et d'un mot de passe
+ * Enfin si l'utilisateur est trouvé, la fonction crée une session ainsi que des variables de sessions.
  * @return void
  */
 function connexion_utilisateur()
@@ -85,6 +92,7 @@ function connexion_utilisateur()
 	if ($_POST['Pseudo'] and $_POST['mdp'])
 	{
 		$employe = recherche_utilisateur($_POST['Pseudo'], $_POST['mdp']);
+		if ($employe)
 		{
 			session_start();
 			$_SESSION['id_Employe'] = $employe['id_Employe'];
@@ -112,12 +120,18 @@ function DemarrerSession()
 	}
 }
 
+/**
+ * fonction EstConnecte()
+ * Cette fonction vérifie la presence de la variable de session relative à l'id de l'employé.
+ * Si elle n'est pas présente, elle redirige vers la page de connexion.
+ * @return void
+ */
 function EstConnecte()
 {
 	DemarrerSession();
 	if (!isset($_SESSION['id_Employe'])) 
 	{
-		header('location: ../page_connexion.php');
+		header('location: /m2Lfranck/page_connexion.php');
 		exit;
 	}
 }
