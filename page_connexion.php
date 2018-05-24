@@ -18,7 +18,25 @@ include 'boot_css/headeravantco.php';
 <title>Connexion</title>
 </head>
 <body style="background:#E8E7E7">
-
+<?php
+if(isset($_POST['co']))
+{
+if ($_POST['co'] ) 
+	{
+		if (connexion_utilisateur() == true)
+		{	
+			
+			header('Location: index.php'); 
+			
+		}
+		else
+		{
+			echo '<div class="alert alert-danger text-center" role="alert">Echec de la connexion : votre pseudo ou votre mot de passe est incorrect.</div>';
+		}
+   
+	}
+}
+?>
 <div class="container " style="margin-top:10%;">
 <div class="row justify-content-center ">
 <div class="card bg-light border-info mb-3" style="border-width:thin;">
@@ -48,29 +66,7 @@ include 'boot_css/headeravantco.php';
 
 
 </body>
-<?php
 
-
-if(isset($_POST['co']))
-{
-if ($_POST['co'] ) 
-	{
-		if (connexion_utilisateur())
-		{	
-			
-			header('Location: index.php'); 
-			
-		}
-		else
-		{
-			echo '<div class="alert alert-danger text-center" role="alert">Echec de la connexion : votre pseudo ou votre mot de passe est incorrect.</div>';
-		}
-   
-	}
-}
-
-	
-	?>
 
 
  
