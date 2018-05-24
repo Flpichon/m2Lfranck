@@ -164,4 +164,16 @@ function CreditEmploye()
 	$resultat = $prep->fetch();
 	return $resultat;
 }
+
+function Superieur_Employe()
+{
+	$dbh=init_connexion(); 
+	$req='SELECT nom_Employe from employe where id_Employe = (select Superieur from employe where id_Employe=:id)';
+	$prep=$dbh->prepare($req);
+	$resultat = $prep->execute(array('id' => $_SESSION['id_Employe']));
+	$resultat = $prep->fetch();
+	return $resultat;
+}
+
+
 ?>
