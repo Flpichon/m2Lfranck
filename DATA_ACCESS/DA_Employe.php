@@ -100,7 +100,11 @@ function connexion_utilisateur()
 	return $resultat;
 
 }
-
+/**
+ * Fonction DemarrerSession
+ * Verifie si une session est créée, sinon démarre une session
+ * @return void
+ */
 function DemarrerSession()
 {
 	if (session_status() == PHP_SESSION_NONE) {
