@@ -24,4 +24,4 @@ Le projet dispose de :
  
  - page d'historique des formations
  
-Le projet est réalisé sous visual studio code et hebergé pour le moment sur un serveur dédié (hostinger).
+Le projet est réalisé sous visual studio code et hebergé sur WAMP SERVER en local pour la version de préproduction puis sur WAMP SERVER configuré comme serveur de production sur la plateforme de la maison des ligues.
