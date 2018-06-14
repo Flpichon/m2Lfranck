@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_d_a___formation_8php" kind="file" language="PHP">
+    <compoundname>DA_Formation.php</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_d_a___formation_8php_1af594c595ded40a372496fa8d0aca5ef3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>formation_ok2</definition>
+        <argsstring>($forma)</argsstring>
+        <name>formation_ok2</name>
+        <param>
+          <declname>$forma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fonction formation_ok2 Cette fonction a pour but de vérifier la présence d&apos;une formation associée à un employé (sous le statut : en attente, validé ou en cours) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[string]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$forma </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ndash/> vrai si la formation entrée en paramètre est associée à l&apos;employé dont la session est active </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Formation.php" line="10" column="1" bodyfile="DATA_ACCESS/DA_Formation.php" bodystart="10" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___formation_8php_1aa12612b84ce8697154f9fff827e842be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>formation_etat_ok</definition>
+        <argsstring>($forma, $id)</argsstring>
+        <name>formation_etat_ok</name>
+        <param>
+          <declname>$forma</declname>
+        </param>
+        <param>
+          <declname>$id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fonction formation_etat_ok</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[string]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$forma </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[int]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$id </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ndash/> vrai si la formation est associée à un salarié et n&apos;est pas en attente </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Formation.php" line="28" column="1" bodyfile="DATA_ACCESS/DA_Formation.php" bodystart="28" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___formation_8php_1a4150fb7fb9a6f85120b497c6d0a2c099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>formation_etat_attente</definition>
+        <argsstring>($id)</argsstring>
+        <name>formation_etat_attente</name>
+        <param>
+          <declname>$id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fonction formation_etat_attente</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[int]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$id </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ndash/> vrai si la formation dont l&apos;id est en paramètre de la fonction est en attente </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Formation.php" line="46" column="1" bodyfile="DATA_ACCESS/DA_Formation.php" bodystart="46" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___formation_8php_1a216b9e5a309a53fab1da28931d5cd352" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ajout</definition>
+        <argsstring>($format)</argsstring>
+        <name>ajout</name>
+        <param>
+          <declname>$format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fonction ajout Cette fonction permet d&apos;ajouter une formation dans la table selectionner (entre une formation et un employé) Si l&apos;employé est un manager, celle ci sera automatiquement mise sous le statut &quot;validé&quot;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[id]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$format </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Formation.php" line="65" column="1" bodyfile="DATA_ACCESS/DA_Formation.php" bodystart="65" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?php<sp/></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">include_once(dirname(__FILE__)<sp/>.<sp/></highlight><highlight class="stringliteral">&quot;/../BDD/connexion_bdd.php&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___formation_8php_1af594c595ded40a372496fa8d0aca5ef3" kindref="member">formation_ok2</ref>($forma)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>titre_Formation<sp/>FROM<sp/>Prestataire<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Prestataire.id_Prestataire=Formation.id_Prestataire<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Formation.id_Formation<sp/>=<sp/>Selectionner.id_Formation<sp/>inner<sp/>join<sp/>Employe<sp/>on<sp/>Selectionner.id_Employe=Employe.id_Employe<sp/>where<sp/>Employe.id_Employe<sp/>=:id<sp/>and<sp/>(etat=&quot;en<sp/>cours&quot;<sp/>or<sp/>etat=&quot;en<sp/>attente&quot;<sp/>or<sp/>etat=&quot;validé&quot;<sp/>or<sp/>etat=&quot;refusé&quot;)<sp/>and<sp/>(date_Formation+duree_Formation)&gt;CURDATE()<sp/>and<sp/>titre_Formation=:formation&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">],<sp/></highlight><highlight class="stringliteral">&apos;formation&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$forma));</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($resultat)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___formation_8php_1aa12612b84ce8697154f9fff827e842be" kindref="member">formation_etat_ok</ref>($forma,<sp/>$id)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>titre_Formation<sp/>FROM<sp/>Prestataire<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Prestataire.id_Prestataire=Formation.id_Prestataire<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Formation.id_Formation<sp/>=<sp/>Selectionner.id_Formation<sp/>inner<sp/>join<sp/>Employe<sp/>on<sp/>Selectionner.id_Employe=Employe.id_Employe<sp/>where<sp/>Employe.id_Employe<sp/>=:id<sp/>and<sp/>(etat=&quot;en<sp/>cours&quot;<sp/>or<sp/>etat=&quot;validé&quot;<sp/>or<sp/>etat=&quot;refusé&quot;)<sp/>and<sp/>(date_Formation+duree_Formation)&gt;CURDATE()<sp/>and<sp/>titre_Formation=:formation&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$id,<sp/></highlight><highlight class="stringliteral">&apos;formation&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$forma));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($resultat)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___formation_8php_1a4150fb7fb9a6f85120b497c6d0a2c099" kindref="member">formation_etat_attente</ref>($id)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>titre_Formation<sp/>FROM<sp/>Prestataire<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Prestataire.id_Prestataire=Formation.id_Prestataire<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Formation.id_Formation<sp/>=<sp/>Selectionner.id_Formation<sp/>inner<sp/>join<sp/>Employe<sp/>on<sp/>Selectionner.id_Employe=Employe.id_Employe<sp/>where<sp/>Employe.id_Employe<sp/>=:id<sp/>and<sp/>(etat=&quot;en<sp/>attente&quot;)<sp/>and<sp/>(date_Formation+duree_Formation)&gt;CURDATE()&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$id));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($resultat)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___formation_8php_1a216b9e5a309a53fab1da28931d5cd352" kindref="member">ajout</ref>($format)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="methodes_8php_1a9a319be4735262033f28f3619f3f74d2" kindref="member">Estmanager</ref>())<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;INSERT<sp/>INTO<sp/>`Selectionner`<sp/>(`id_Employe`,<sp/>`id_Formation`,<sp/>`etat`)<sp/>VALUES<sp/>(:id,<sp/>:forma,<sp/>&quot;validé&quot;);</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>UPDATE<sp/>Employe<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Employe.id_Employe=Selectionner.id_Employe<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Selectionner.id_Formation=Formation.id_Formation<sp/>SET<sp/>Employe.credit<sp/>=<sp/>Employe.credit-Formation.credit<sp/>WHERE<sp/>`Employe`.`id_Employe`<sp/>=<sp/>:id<sp/>and<sp/>Formation.id_Formation=:forma;&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;INSERT<sp/>INTO<sp/>`Selectionner`<sp/>(`id_Employe`,<sp/>`id_Formation`,<sp/>`etat`)<sp/>VALUES<sp/>(:id,<sp/>:forma,<sp/>&quot;en<sp/>attente&quot;);</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>UPDATE<sp/>Employe<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Employe.id_Employe=Selectionner.id_Employe<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Selectionner.id_Formation=Formation.id_Formation<sp/>SET<sp/>Employe.credit<sp/>=<sp/>Employe.credit-Formation.credit<sp/>WHERE<sp/>`Employe`.`id_Employe`<sp/>=<sp/>:id<sp/>and<sp/>Formation.id_Formation=:forma;&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">],<sp/></highlight><highlight class="stringliteral">&apos;forma&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$format));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="DATA_ACCESS/DA_Formation.php"/>
+  </compounddef>
+</doxygen>

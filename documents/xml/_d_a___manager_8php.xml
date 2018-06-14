@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_d_a___manager_8php" kind="file" language="PHP">
+    <compoundname>DA_Manager.php</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_d_a___manager_8php_1a76cf6bd4b45d91fa79ccaeb2f7524baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>afficher_mb</definition>
+        <argsstring>()</argsstring>
+        <name>afficher_mb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fonction afficher_mb Dans cette fonction seuls les employé ayant pour superieur le manager avec l&apos;id donné seront affichés <simplesect kind="return"><para><ndash/> tableau contenant toutes les informations relatives aux employés (de type 2 : non-manager) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Manager.php" line="7" column="1" bodyfile="DATA_ACCESS/DA_Manager.php" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___manager_8php_1a611bac5ebcab1eba4fde1dd61363ea49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Valider_Etat_Formation</definition>
+        <argsstring>($etat, $formation, $id_employe)</argsstring>
+        <name>Valider_Etat_Formation</name>
+        <param>
+          <declname>$etat</declname>
+        </param>
+        <param>
+          <declname>$formation</declname>
+        </param>
+        <param>
+          <declname>$id_employe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fonction Valider_Etat_Formation Cette fonction va permettre selon le choix fait du manager de valider ou de refuser une formation demandée par un employé. Si elle est refusée, les crédits de l&apos;employé luis sont réatribués. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[string]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$etat </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[int]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$formation </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[int]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$id_employe </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Manager.php" line="26" column="1" bodyfile="DATA_ACCESS/DA_Manager.php" bodystart="26" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?php</highlight></codeline>
+<codeline lineno="7"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___manager_8php_1a76cf6bd4b45d91fa79ccaeb2f7524baf" kindref="member">afficher_mb</ref>()<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>*<sp/>FROM<sp/>Employe<sp/>where<sp/>type_Employe=2<sp/>and<sp/>Superieur=:id&apos;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]));</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}<sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___manager_8php_1a611bac5ebcab1eba4fde1dd61363ea49" kindref="member">Valider_Etat_Formation</ref>($etat,<sp/>$formation,<sp/>$id_employe)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;UPDATE<sp/>`Selectionner`<sp/>SET<sp/>`etat`<sp/>=<sp/>:etat<sp/>WHERE<sp/>`Selectionner`.`id_Employe`<sp/>=<sp/>:id_employe<sp/>AND<sp/>`Selectionner`.`id_Formation`<sp/>=<sp/>:id_formation;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id_employe&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$id_employe,<sp/></highlight><highlight class="stringliteral">&apos;id_formation&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$formation,<sp/></highlight><highlight class="stringliteral">&apos;etat&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$etat));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($etat==</highlight><highlight class="stringliteral">&quot;Refusé&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$req1=</highlight><highlight class="stringliteral">&quot;UPDATE<sp/>Employe<sp/>inner<sp/>join<sp/>Selectionner<sp/>on<sp/>Employe.id_Employe=Selectionner.id_Employe<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Selectionner.id_Formation=Formation.id_Formation<sp/>SET<sp/>Employe.credit<sp/>=<sp/>Employe.credit+Formation.credit<sp/>WHERE<sp/>`Employe`.`id_Employe`<sp/>=<sp/>:id_employe<sp/>and<sp/>Formation.id_Formation=:id_formation;</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DELETE<sp/>FROM<sp/>`Selectionner`<sp/>WHERE<sp/>`Selectionner`.`id_Employe`<sp/>=<sp/>:id_employe<sp/>and<sp/>`Selectionner`.`id_Formation`=:id_formation;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$prep1=$dbh-&gt;prepare($req1);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$resultat1=$prep1-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id_employe&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$id_employe,<sp/></highlight><highlight class="stringliteral">&apos;id_formation&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$formation));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="DATA_ACCESS/DA_Manager.php"/>
+  </compounddef>
+</doxygen>

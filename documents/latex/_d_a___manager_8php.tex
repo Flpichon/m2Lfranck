@@ -1,0 +1,39 @@
+\section{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Manager.php File Reference}
+\label{_d_a___manager_8php}\index{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Manager.\+php@{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Manager.\+php}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ afficher\+\_\+mb} ()
+\item 
+\textbf{ Valider\+\_\+\+Etat\+\_\+\+Formation} (\$etat, \$formation, \$id\+\_\+employe)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{_d_a___manager_8php_a76cf6bd4b45d91fa79ccaeb2f7524baf}} 
+\index{D\+A\+\_\+\+Manager.\+php@{D\+A\+\_\+\+Manager.\+php}!afficher\+\_\+mb@{afficher\+\_\+mb}}
+\index{afficher\+\_\+mb@{afficher\+\_\+mb}!D\+A\+\_\+\+Manager.\+php@{D\+A\+\_\+\+Manager.\+php}}
+\subsubsection{afficher\+\_\+mb()}
+{\footnotesize\ttfamily afficher\+\_\+mb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fonction afficher\+\_\+mb Dans cette fonction seuls les employé ayant pour superieur le manager avec l\textquotesingle{}id donné seront affichés \begin{DoxyReturn}{Returns}
+-- tableau contenant toutes les informations relatives aux employés (de type 2 \+: non-\/manager) 
+\end{DoxyReturn}
+\mbox{\label{_d_a___manager_8php_a611bac5ebcab1eba4fde1dd61363ea49}} 
+\index{D\+A\+\_\+\+Manager.\+php@{D\+A\+\_\+\+Manager.\+php}!Valider\+\_\+\+Etat\+\_\+\+Formation@{Valider\+\_\+\+Etat\+\_\+\+Formation}}
+\index{Valider\+\_\+\+Etat\+\_\+\+Formation@{Valider\+\_\+\+Etat\+\_\+\+Formation}!D\+A\+\_\+\+Manager.\+php@{D\+A\+\_\+\+Manager.\+php}}
+\subsubsection{Valider\+\_\+\+Etat\+\_\+\+Formation()}
+{\footnotesize\ttfamily Valider\+\_\+\+Etat\+\_\+\+Formation (\begin{DoxyParamCaption}\item[{}]{\$etat,  }\item[{}]{\$formation,  }\item[{}]{\$id\+\_\+employe }\end{DoxyParamCaption})}
+
+Fonction Valider\+\_\+\+Etat\+\_\+\+Formation Cette fonction va permettre selon le choix fait du manager de valider ou de refuser une formation demandée par un employé. Si elle est refusée, les crédits de l\textquotesingle{}employé luis sont réatribués. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}string\mbox{]}} & \$etat \\
+\hline
+{\em \mbox{[}int\mbox{]}} & \$formation \\
+\hline
+{\em \mbox{[}int\mbox{]}} & \$id\+\_\+employe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_d_a___employe_8php" kind="file" language="PHP">
+    <compoundname>DA_Employe.php</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_d_a___employe_8php_1ad09a23d2b29bfc0f2869ffc5276de2f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Afficher_formations_actuelles_encours</definition>
+        <argsstring>()</argsstring>
+        <name>Afficher_formations_actuelles_encours</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function <ref refid="_d_a___employe_8php_1ad09a23d2b29bfc0f2869ffc5276de2f3" kindref="member">Afficher_formations_actuelles_encours()</ref></para><para><simplesect kind="return"><para><ndash/> tableau contenant les formations en cours, en attente ou validé pour un Employé </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="9" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="9" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1aca61a6d703ea24d00ad19ea1ad7a7a35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Afficher_formations</definition>
+        <argsstring>()</argsstring>
+        <name>Afficher_formations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fonction <ref refid="_d_a___employe_8php_1aca61a6d703ea24d00ad19ea1ad7a7a35" kindref="member">Afficher_formations()</ref></para><para><simplesect kind="return"><para><ndash/> un tableau avec la liste des formations </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="32" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="32" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a6a3e7fe7cf7b1493ca907dff85bcdc0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>recherche_utilisateur</definition>
+        <argsstring>($Pseudo, $mdp)</argsstring>
+        <name>recherche_utilisateur</name>
+        <param>
+          <declname>$Pseudo</declname>
+        </param>
+        <param>
+          <declname>$mdp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function recherche_utilisateur</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[string]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$Pseudo </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>[string]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$mdp </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void</para></simplesect>
+Place le pseudo et le mot de passe d&apos;un utilisateur en paramètres retourne true si pseudo || mot de passe sont présents dans la BDD </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="54" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="54" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a8716a7c0c190235d475a9e39a55e5d6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>info_Employe</definition>
+        <argsstring>($id)</argsstring>
+        <name>info_Employe</name>
+        <param>
+          <declname>$id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fonction info_Employe</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[int]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$id </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ndash/> tableau des informations relatives à l&apos;employé selectionné par son id </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="73" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a2e9520be5a4d2c6f4de5f49533d02dbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>connexion_utilisateur</definition>
+        <argsstring>()</argsstring>
+        <name>connexion_utilisateur</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function connexion_utilisateur Cette fonction verifie si le Pseudo et le mot de passe ont bien été saisit. Ensuite elle appelle la fonction : recherche_utilisateur afin de déterminer l&apos;existence d&apos;un pseudo et d&apos;un mot de passe Enfin si l&apos;utilisateur est trouvé, la fonction crée une session ainsi que des variables de sessions. <simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="89" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="89" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a323a49e3efea206338e3c863a0bb585c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DemarrerSession</definition>
+        <argsstring>()</argsstring>
+        <name>DemarrerSession</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fonction DemarrerSession Verifie si une session est créée, sinon démarre une session <simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="116" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="116" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a3eedf2f84c3a45252393a9d1534ea6df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EstConnecte</definition>
+        <argsstring>()</argsstring>
+        <name>EstConnecte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fonction <ref refid="_d_a___employe_8php_1a3eedf2f84c3a45252393a9d1534ea6df" kindref="member">EstConnecte()</ref> Cette fonction vérifie la presence de la variable de session relative à l&apos;id de l&apos;employé. Si elle n&apos;est pas présente, elle redirige vers la page de connexion. <simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="129" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="129" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a36570c83f8fdf18dcf2e6eda714dbd70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AfficherDate</definition>
+        <argsstring>($date)</argsstring>
+        <name>AfficherDate</name>
+        <param>
+          <declname>$date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function AfficherDate</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>[Date]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>$date </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void cette fonction permet de renvoyer dans le format souhaité une date entrée en paramètres </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="146" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="146" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1a9c42e32e81675c918b74228c316ae48d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CreditEmploye</definition>
+        <argsstring>()</argsstring>
+        <name>CreditEmploye</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>function CreditEmploye renvoit le nombre de crédits d&apos;un employé</para><para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="158" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="158" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="_d_a___employe_8php_1ac04303263e1bd7eaa00f899764b703a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Superieur_Employe</definition>
+        <argsstring>()</argsstring>
+        <name>Superieur_Employe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DATA_ACCESS/DA_Employe.php" line="168" column="1" bodyfile="DATA_ACCESS/DA_Employe.php" bodystart="168" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?php</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">include_once(dirname(__FILE__)<sp/>.<sp/></highlight><highlight class="stringliteral">&quot;/../BDD/connexion_bdd.php&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1ad09a23d2b29bfc0f2869ffc5276de2f3" kindref="member">Afficher_formations_actuelles_encours</ref>()</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire</highlight></codeline>
+<codeline lineno="13"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>FROM<sp/>Prestataire<sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>inner<sp/>join<sp/>Formation<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>on<sp/>Prestataire.id_Prestataire=Formation.id_Prestataire<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>inner<sp/>join<sp/>Selectionner<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>on<sp/>Formation.id_Formation<sp/>=<sp/>Selectionner.id_Formation<sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>inner<sp/>join<sp/>Employe<sp/>on<sp/>Selectionner.id_Employe=Employe.id_Employe<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>where<sp/>Employe.id_Employe<sp/>=:id<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>and<sp/>(etat=&quot;en<sp/>cours&quot;<sp/>or<sp/>etat=&quot;en<sp/>attente&quot;<sp/>or<sp/>etat=&quot;validé&quot;)<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/>and<sp/>(duree_Formation+<sp/>date_Formation)&gt;CURDATE()&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1aca61a6d703ea24d00ad19ea1ad7a7a35" kindref="member">Afficher_formations</ref>()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>id_Formation,titre_Formation,description_forma,date_Formation,duree_Formation,nom_Prestataire,credit<sp/>FROM<sp/>Prestataire<sp/>inner<sp/>join<sp/>Formation<sp/>on<sp/>Prestataire.id_Prestataire=Formation.id_Prestataire<sp/>where<sp/>date_Formation&gt;CURDATE()&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array());</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetchAll();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a6a3e7fe7cf7b1493ca907dff85bcdc0d" kindref="member">recherche_utilisateur</ref>($Pseudo,<sp/>$mdp)</highlight><highlight class="comment">//début</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;select<sp/>Pseudo,mdp,id_Employe,Prenom_Employe,nom_Employe,credit,type_Employe<sp/>from<sp/>Employe<sp/>inner<sp/>join<sp/>Type_Employe<sp/>on<sp/>Employe.type_Employe=Type_Employe.id_Type_Employe<sp/>where<sp/>Pseudo=<sp/>:pseudo<sp/>and<sp/>mdp=<sp/>md5(:mdp)&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;pseudo&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$Pseudo,</highlight><highlight class="stringliteral">&apos;mdp&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$mdp));</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($resultat)<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetch();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>null;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a8716a7c0c190235d475a9e39a55e5d6a" kindref="member">info_Employe</ref>($id)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh=init_connexion();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>$req=</highlight><highlight class="stringliteral">&quot;select<sp/>*<sp/>from<sp/>Employe<sp/>where<sp/>id_Employe=<sp/>:id&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep=$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$id));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat=$prep-&gt;fetch(PDO::FETCH_ASSOC);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a2e9520be5a4d2c6f4de5f49533d02dbc" kindref="member">connexion_utilisateur</ref>()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($_POST[</highlight><highlight class="stringliteral">&apos;Pseudo&apos;</highlight><highlight class="normal">]<sp/>and<sp/>$_POST[</highlight><highlight class="stringliteral">&apos;mdp&apos;</highlight><highlight class="normal">])</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$employe<sp/>=<sp/><ref refid="_d_a___employe_8php_1a6a3e7fe7cf7b1493ca907dff85bcdc0d" kindref="member">recherche_utilisateur</ref>($_POST[</highlight><highlight class="stringliteral">&apos;Pseudo&apos;</highlight><highlight class="normal">],<sp/>$_POST[</highlight><highlight class="stringliteral">&apos;mdp&apos;</highlight><highlight class="normal">]);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>($employe)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>session_start();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]<sp/>=<sp/>$employe[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;Prenom_Employe&apos;</highlight><highlight class="normal">]<sp/>=<sp/>$employe[</highlight><highlight class="stringliteral">&apos;Prenom_Employe&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;nom_Employe&apos;</highlight><highlight class="normal">]<sp/>=<sp/>$employe[</highlight><highlight class="stringliteral">&apos;nom_Employe&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;creditfo&apos;</highlight><highlight class="normal">][]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;credit&apos;</highlight><highlight class="normal">]<sp/>=<sp/>$employe[</highlight><highlight class="stringliteral">&apos;credit&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;type_Employe&apos;</highlight><highlight class="normal">]<sp/>=<sp/>$employe[</highlight><highlight class="stringliteral">&apos;type_Employe&apos;</highlight><highlight class="normal">];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a323a49e3efea206338e3c863a0bb585c" kindref="member">DemarrerSession</ref>()</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(session_status()<sp/>==<sp/>PHP_SESSION_NONE)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>session_start();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a3eedf2f84c3a45252393a9d1534ea6df" kindref="member">EstConnecte</ref>()</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_d_a___employe_8php_1a323a49e3efea206338e3c863a0bb585c" kindref="member">DemarrerSession</ref>();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isset($_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]))<sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>header(</highlight><highlight class="stringliteral">&apos;location:<sp/>/m2Lfranck/page_connexion.php&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a36570c83f8fdf18dcf2e6eda714dbd70" kindref="member">AfficherDate</ref>($date)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>$phpdate<sp/>=<sp/>strtotime($date);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date(</highlight><highlight class="stringliteral">&apos;d-m-Y&apos;</highlight><highlight class="normal">,<sp/>$phpdate);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1a9c42e32e81675c918b74228c316ae48d" kindref="member">CreditEmploye</ref>()</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh<sp/>=<sp/>init_connexion();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>$req<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;SELECT<sp/>`credit`<sp/>from<sp/>Employe<sp/>where<sp/>id_Employe=:id&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep<sp/>=<sp/>$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetch();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/><ref refid="_d_a___employe_8php_1ac04303263e1bd7eaa00f899764b703a3" kindref="member">Superieur_Employe</ref>()</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>$dbh=init_connexion();<sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>$req=</highlight><highlight class="stringliteral">&apos;SELECT<sp/>nom_Employe<sp/>from<sp/>employe<sp/>where<sp/>id_Employe<sp/>=<sp/>(select<sp/>Superieur<sp/>from<sp/>employe<sp/>where<sp/>id_Employe=:id)&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>$prep=$dbh-&gt;prepare($req);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;execute(array(</highlight><highlight class="stringliteral">&apos;id&apos;</highlight><highlight class="normal"><sp/>=&gt;<sp/>$_SESSION[</highlight><highlight class="stringliteral">&apos;id_Employe&apos;</highlight><highlight class="normal">]));</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>$resultat<sp/>=<sp/>$prep-&gt;fetch();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>$resultat;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="DATA_ACCESS/DA_Employe.php"/>
+  </compounddef>
+</doxygen>

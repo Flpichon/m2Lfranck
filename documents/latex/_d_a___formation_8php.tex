@@ -1,0 +1,78 @@
+\section{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Formation.php File Reference}
+\label{_d_a___formation_8php}\index{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Formation.\+php@{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Formation.\+php}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ formation\+\_\+ok2} (\$forma)
+\item 
+\textbf{ formation\+\_\+etat\+\_\+ok} (\$forma, \$id)
+\item 
+\textbf{ formation\+\_\+etat\+\_\+attente} (\$id)
+\item 
+\textbf{ ajout} (\$format)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{_d_a___formation_8php_a216b9e5a309a53fab1da28931d5cd352}} 
+\index{D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}!ajout@{ajout}}
+\index{ajout@{ajout}!D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}}
+\subsubsection{ajout()}
+{\footnotesize\ttfamily ajout (\begin{DoxyParamCaption}\item[{}]{\$format }\end{DoxyParamCaption})}
+
+Fonction ajout Cette fonction permet d\textquotesingle{}ajouter une formation dans la table selectionner (entre une formation et un employé) Si l\textquotesingle{}employé est un manager, celle ci sera automatiquement mise sous le statut \char`\"{}validé\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}id\mbox{]}} & \$format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{_d_a___formation_8php_a4150fb7fb9a6f85120b497c6d0a2c099}} 
+\index{D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}!formation\+\_\+etat\+\_\+attente@{formation\+\_\+etat\+\_\+attente}}
+\index{formation\+\_\+etat\+\_\+attente@{formation\+\_\+etat\+\_\+attente}!D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}}
+\subsubsection{formation\+\_\+etat\+\_\+attente()}
+{\footnotesize\ttfamily formation\+\_\+etat\+\_\+attente (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+fonction formation\+\_\+etat\+\_\+attente
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}int\mbox{]}} & \$id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-- vrai si la formation dont l\textquotesingle{}id est en paramètre de la fonction est en attente 
+\end{DoxyReturn}
+\mbox{\label{_d_a___formation_8php_aa12612b84ce8697154f9fff827e842be}} 
+\index{D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}!formation\+\_\+etat\+\_\+ok@{formation\+\_\+etat\+\_\+ok}}
+\index{formation\+\_\+etat\+\_\+ok@{formation\+\_\+etat\+\_\+ok}!D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}}
+\subsubsection{formation\+\_\+etat\+\_\+ok()}
+{\footnotesize\ttfamily formation\+\_\+etat\+\_\+ok (\begin{DoxyParamCaption}\item[{}]{\$forma,  }\item[{}]{\$id }\end{DoxyParamCaption})}
+
+Fonction formation\+\_\+etat\+\_\+ok
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}string\mbox{]}} & \$forma \\
+\hline
+{\em \mbox{[}int\mbox{]}} & \$id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-- vrai si la formation est associée à un salarié et n\textquotesingle{}est pas en attente 
+\end{DoxyReturn}
+\mbox{\label{_d_a___formation_8php_af594c595ded40a372496fa8d0aca5ef3}} 
+\index{D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}!formation\+\_\+ok2@{formation\+\_\+ok2}}
+\index{formation\+\_\+ok2@{formation\+\_\+ok2}!D\+A\+\_\+\+Formation.\+php@{D\+A\+\_\+\+Formation.\+php}}
+\subsubsection{formation\+\_\+ok2()}
+{\footnotesize\ttfamily formation\+\_\+ok2 (\begin{DoxyParamCaption}\item[{}]{\$forma }\end{DoxyParamCaption})}
+
+Fonction formation\+\_\+ok2 Cette fonction a pour but de vérifier la présence d\textquotesingle{}une formation associée à un employé (sous le statut \+: en attente, validé ou en cours) 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}string\mbox{]}} & \$forma \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-- vrai si la formation entrée en paramètre est associée à l\textquotesingle{}employé dont la session est active 
+\end{DoxyReturn}

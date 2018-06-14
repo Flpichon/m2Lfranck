@@ -1,0 +1,144 @@
+\section{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Employe.php File Reference}
+\label{_d_a___employe_8php}\index{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Employe.\+php@{D\+A\+T\+A\+\_\+\+A\+C\+C\+E\+S\+S/\+D\+A\+\_\+\+Employe.\+php}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours} ()
+\item 
+\textbf{ Afficher\+\_\+formations} ()
+\item 
+\textbf{ recherche\+\_\+utilisateur} (\$Pseudo, \$mdp)
+\item 
+\textbf{ info\+\_\+\+Employe} (\$id)
+\item 
+\textbf{ connexion\+\_\+utilisateur} ()
+\item 
+\textbf{ Demarrer\+Session} ()
+\item 
+\textbf{ Est\+Connecte} ()
+\item 
+\textbf{ Afficher\+Date} (\$date)
+\item 
+\textbf{ Credit\+Employe} ()
+\item 
+\textbf{ Superieur\+\_\+\+Employe} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{_d_a___employe_8php_aca61a6d703ea24d00ad19ea1ad7a7a35}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Afficher\+\_\+formations@{Afficher\+\_\+formations}}
+\index{Afficher\+\_\+formations@{Afficher\+\_\+formations}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Afficher\+\_\+formations()}
+{\footnotesize\ttfamily Afficher\+\_\+formations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fonction \doxyref{Afficher\+\_\+formations()}{p.}{_d_a___employe_8php_aca61a6d703ea24d00ad19ea1ad7a7a35}
+
+\begin{DoxyReturn}{Returns}
+-- un tableau avec la liste des formations 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_ad09a23d2b29bfc0f2869ffc5276de2f3}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours@{Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours}}
+\index{Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours@{Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours()}
+{\footnotesize\ttfamily Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function \doxyref{Afficher\+\_\+formations\+\_\+actuelles\+\_\+encours()}{p.}{_d_a___employe_8php_ad09a23d2b29bfc0f2869ffc5276de2f3}
+
+\begin{DoxyReturn}{Returns}
+-- tableau contenant les formations en cours, en attente ou validé pour un Employé 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a36570c83f8fdf18dcf2e6eda714dbd70}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Afficher\+Date@{Afficher\+Date}}
+\index{Afficher\+Date@{Afficher\+Date}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Afficher\+Date()}
+{\footnotesize\ttfamily Afficher\+Date (\begin{DoxyParamCaption}\item[{}]{\$date }\end{DoxyParamCaption})}
+
+function Afficher\+Date
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+Date\mbox{]}} & \$date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void cette fonction permet de renvoyer dans le format souhaité une date entrée en paramètres 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a2e9520be5a4d2c6f4de5f49533d02dbc}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!connexion\+\_\+utilisateur@{connexion\+\_\+utilisateur}}
+\index{connexion\+\_\+utilisateur@{connexion\+\_\+utilisateur}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{connexion\+\_\+utilisateur()}
+{\footnotesize\ttfamily connexion\+\_\+utilisateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function connexion\+\_\+utilisateur Cette fonction verifie si le Pseudo et le mot de passe ont bien été saisit. Ensuite elle appelle la fonction \+: recherche\+\_\+utilisateur afin de déterminer l\textquotesingle{}existence d\textquotesingle{}un pseudo et d\textquotesingle{}un mot de passe Enfin si l\textquotesingle{}utilisateur est trouvé, la fonction crée une session ainsi que des variables de sessions. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a9c42e32e81675c918b74228c316ae48d}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Credit\+Employe@{Credit\+Employe}}
+\index{Credit\+Employe@{Credit\+Employe}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Credit\+Employe()}
+{\footnotesize\ttfamily Credit\+Employe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function Credit\+Employe renvoit le nombre de crédits d\textquotesingle{}un employé
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a323a49e3efea206338e3c863a0bb585c}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Demarrer\+Session@{Demarrer\+Session}}
+\index{Demarrer\+Session@{Demarrer\+Session}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Demarrer\+Session()}
+{\footnotesize\ttfamily Demarrer\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Fonction Demarrer\+Session Verifie si une session est créée, sinon démarre une session \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a3eedf2f84c3a45252393a9d1534ea6df}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Est\+Connecte@{Est\+Connecte}}
+\index{Est\+Connecte@{Est\+Connecte}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Est\+Connecte()}
+{\footnotesize\ttfamily Est\+Connecte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+fonction \doxyref{Est\+Connecte()}{p.}{_d_a___employe_8php_a3eedf2f84c3a45252393a9d1534ea6df} Cette fonction vérifie la presence de la variable de session relative à l\textquotesingle{}id de l\textquotesingle{}employé. Si elle n\textquotesingle{}est pas présente, elle redirige vers la page de connexion. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a8716a7c0c190235d475a9e39a55e5d6a}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!info\+\_\+\+Employe@{info\+\_\+\+Employe}}
+\index{info\+\_\+\+Employe@{info\+\_\+\+Employe}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{info\+\_\+\+Employe()}
+{\footnotesize\ttfamily info\+\_\+\+Employe (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})}
+
+fonction info\+\_\+\+Employe
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}int\mbox{]}} & \$id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-- tableau des informations relatives à l\textquotesingle{}employé selectionné par son id 
+\end{DoxyReturn}
+\mbox{\label{_d_a___employe_8php_a6a3e7fe7cf7b1493ca907dff85bcdc0d}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!recherche\+\_\+utilisateur@{recherche\+\_\+utilisateur}}
+\index{recherche\+\_\+utilisateur@{recherche\+\_\+utilisateur}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{recherche\+\_\+utilisateur()}
+{\footnotesize\ttfamily recherche\+\_\+utilisateur (\begin{DoxyParamCaption}\item[{}]{\$\+Pseudo,  }\item[{}]{\$mdp }\end{DoxyParamCaption})}
+
+function recherche\+\_\+utilisateur
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}string\mbox{]}} & \$\+Pseudo \\
+\hline
+{\em \mbox{[}string\mbox{]}} & \$mdp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+Place le pseudo et le mot de passe d\textquotesingle{}un utilisateur en paramètres retourne true si pseudo $\vert$$\vert$ mot de passe sont présents dans la B\+DD \mbox{\label{_d_a___employe_8php_ac04303263e1bd7eaa00f899764b703a3}} 
+\index{D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}!Superieur\+\_\+\+Employe@{Superieur\+\_\+\+Employe}}
+\index{Superieur\+\_\+\+Employe@{Superieur\+\_\+\+Employe}!D\+A\+\_\+\+Employe.\+php@{D\+A\+\_\+\+Employe.\+php}}
+\subsubsection{Superieur\+\_\+\+Employe()}
+{\footnotesize\ttfamily Superieur\+\_\+\+Employe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
